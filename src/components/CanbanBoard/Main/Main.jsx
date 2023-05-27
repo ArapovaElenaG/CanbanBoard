@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes, HashRouter} from 'react-router-dom';
 import Home from './Home';
 import TaskItem from './TaskItem';
 import Error from './Error';
@@ -127,7 +127,7 @@ function Main({getInfoFooter}) {
 
     return (
         <>
-            <BrowserRouter>
+            <HashRouter>
                 <Routes>
                     <Route 
                         exact path="/" 
@@ -147,7 +147,7 @@ function Main({getInfoFooter}) {
 
                     <Route path="*" element={<Error/>}></Route>
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </>
     )
 }
