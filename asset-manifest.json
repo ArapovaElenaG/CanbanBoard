@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/CanbanBoard/static/css/main.3320e70f.css",
-    "main.js": "/CanbanBoard/static/js/main.945e2cc7.js",
+    "main.js": "/CanbanBoard/static/js/main.f3857ada.js",
     "static/js/787.28cb0dcd.chunk.js": "/CanbanBoard/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/CanbanBoard/index.html",
     "main.3320e70f.css.map": "/CanbanBoard/static/css/main.3320e70f.css.map",
-    "main.945e2cc7.js.map": "/CanbanBoard/static/js/main.945e2cc7.js.map",
+    "main.f3857ada.js.map": "/CanbanBoard/static/js/main.f3857ada.js.map",
     "787.28cb0dcd.chunk.js.map": "/CanbanBoard/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3320e70f.css",
-    "static/js/main.945e2cc7.js"
+    "static/js/main.f3857ada.js"
   ]
 }
