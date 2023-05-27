@@ -1,0 +1,411 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #0079BF;
+}
+
+
+.header {
+    height: 55px;
+    background-color: #0067A3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    font-size: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 38.4px;
+    height: 38.4px;
+    border: 0.8px solid white;
+    border-radius: 50%;
+    background-color: #fff;
+    background-image: url(Header/images/Avatar.jpg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    margin-right: 6px;
+}
+
+.arrowRotate {
+    transform: rotate(180deg);
+}
+
+.wrapperDropDownHeader {
+    position: absolute;
+    height: 70px;
+    top: 55px;
+    right: 0;
+    background-color: #0067A3;
+    width: 100%;
+
+}
+
+.dropDownHeader {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 134px;
+    color: #000;
+    font-size: 13px;
+    right: 9px;
+    top: 7px;
+}
+
+.dropDownHeader::before {
+    content: "";
+    border: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    bottom: 60px;
+    right: 38.2px;
+}
+
+.itemDropDownHeader {
+    height: 30px;
+    padding: 0 7px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.itemDropDownHeader:hover {
+    background-color: #DEDEDE;
+}
+
+
+
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 19px 70px;
+}
+
+.tasks {
+    width: calc(25% - 15px);
+    background-color: #EBECF0;
+    border-radius: 10px;
+    padding: 12px 0 7px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    max-height: calc(100vh - 148px); 
+}
+
+.titleTasks{
+    font-size: 15px;
+    position: sticky;
+    top: 0;
+    background-color: #EBECF0;
+    margin: 0 11px 15px;
+}
+
+.wrapperTask {
+    height: fit-content; 
+    max-height: 63vh;
+    overflow: auto;
+
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.9) insert;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #CBCBCB;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0067A3;
+}
+
+
+.task {
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+    margin: 0 11px 15px;
+    font-size: 14px;
+    word-break: break-all;
+    display: flex;
+    justify-content: space-between;
+    min-height: 35px;
+}
+
+.task:last-of-type {
+    margin: 0 11px;
+}
+
+.taskName {
+    margin-right: 5px;
+}
+
+.linkTask {
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+}
+
+.task:last-of-type {
+    margin: 0 11px;
+}
+
+.buttonAdd {
+    width: 102px;
+    height: 29px;
+    border: none;
+    border-radius: 5px;
+    background-color: #EBECF0;
+    font-size: 14px;
+    color: #5E6C84;
+    margin: 15px 11px 0;
+    cursor: pointer;
+}
+
+.buttonAdd:hover {
+    background-color: white;
+}
+
+.buttonDisabled {
+    color: hsl(218, 17%, 70%);
+    cursor: default;
+}
+
+.buttonDisabled:hover {
+    background-color: #EBECF0;
+}
+
+/*для всалывающей подсказки*/
+[dataTooltip] {
+    position: relative; /* Относительное позиционирование */ 
+}
+
+
+[dataTooltip]::after {
+    content: attr(dataTooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; top: 0; /* Положение подсказки */
+    width: 100px;
+    background: #0067A3; /* Синий цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+    border-radius: 5px;
+    pointer-events: none; /* Предотвратить взаимодействие курсора мыши с подсказкой */
+    opacity: 0; /*Подсказка невидима */
+    transition: 1s; /* Время появления подсказки */
+    z-index: 2;
+} 
+
+[dataTooltip]::after::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #0067A3;
+    position: absolute;
+    /* left: -5px; */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+[dataTooltip]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+    top: -3em; /*Положение подсказки */
+    /* left: -7em; */
+    
+}
+
+
+
+
+.submit {
+    background-color: #0079BF;
+    color: white;
+}
+
+.submit:hover {
+    background-color: #0067A3;
+}
+
+.input, .select {
+    border: none;
+    border-radius: 5px;
+    padding: 7px 13px;
+    margin: 15px 11px 0;
+    font-size: 14px;
+    outline: none;
+    height: 35px;
+}
+
+.wrapperSelect {
+    position: relative;
+    margin: 0 11px;
+}
+
+.selectDiv {
+    border: none;
+    border-radius: 5px;
+    padding: 7px 13px;
+    width: 100%;
+    font-size: 14px;
+    background-color: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 35px;
+    margin-top: 15px;
+}
+
+.options {
+    border-radius: 5px;
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    width: 100%;
+    margin: 3px 0 70px;
+
+}
+
+.optionItem {
+    border-radius: 5px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 7px 13px;
+    width: 100%;
+    background-color: white;
+}
+
+.optionItem:hover {
+    background-color: #DEDEDE;
+}
+
+.selectInput {
+    display: none;
+}
+
+.selectLabel {
+    word-break: break-all;
+}
+
+
+.footer {
+    height: 55px;
+    width: 100%;
+    background-color: #0067A3;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.infoFooter {
+    display: flex;
+}
+
+.itemInfoFooter {
+    margin: 0 16px 0 20px;
+}
+
+
+.taskItem {
+    margin: 19px;
+    border-radius: 5px;
+    padding: 22px 28px;
+    background-color: #fff;
+    height: calc(100vh - 148px);
+
+}
+
+.wrapperTitleTaskItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleTaskItem {
+    font-size: 17px;
+}
+
+.discriptionTask {
+    margin: 30px 0;
+    font-size: 13px;
+    height: 70%;
+    overflow: auto;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.textarea {
+    width: 100%;
+    height: calc(100vh - 290px);
+    margin-top: 30px;
+    outline: none;
+}
+
+.buttonSave {
+    width: 150px;
+    height: 29px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0079BF;
+    font-size: 14px;
+    color: #fff;
+    margin: 15px 0 0;
+    cursor: pointer;
+}
+
+.buttonSave:hover {
+    background-color: #0067A3;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .main {
+        flex-direction: column;
+    }
+    
+    .tasks {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .tasks:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+
+
+
